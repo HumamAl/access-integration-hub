@@ -1,0 +1,21 @@
+{
+  "aesthetic": "corporate-enterprise",
+  "demoFormat": "dashboard-app",
+  "domain": "physical access control systems integration",
+  "mood": "authoritative, reliable, systems-focused, precise",
+  "colorDirection": "deep navy primary (oklch(0.28 0.06 255)) with electric cyan accent (oklch(0.62 0.14 210)) — inspired by Genetec Security Center's dark navy sidebar (#181e25) paired with its bright cyan accent (#00aeef), which is the dominant visual language of enterprise PACS platforms. The navy signals serious security infrastructure; the cyan provides scannable alert and status differentiation.",
+  "typography": "Geist Sans body, Geist Mono for door IDs, access event codes, API endpoint strings, and connection status values — CCURE and Lenel operators read structured data all day. Monospace for identifiers is a hard convention in physical security integration tooling.",
+  "radiusProfile": "tight (0.25rem) — Genetec Security Center, CCURE 9000, and Lenel OnGuard all use near-square corners. Enterprise security software avoids soft rounding; sharp corners communicate precision and seriousness in this domain.",
+  "densityProfile": "compact — PACS integrators monitor access events, sync queues, and connection health across multiple provider systems simultaneously. Data density matches what security operations teams expect: more like Genetec's tile-based dashboard than a spacious SaaS product.",
+  "motionCharacter": "snappy (100-150ms ease-out) — integration middleware must feel responsive and precise. Slow animations signal sluggishness in a domain where access events must be processed in near-real-time. No theatrical effects — stability is the brand signal.",
+  "formatRationale": "The job describes building an interface between a platform and CCURE/Lenel providers — this is an integration hub with persistent navigation between provider connections, access event logs, credential synchronization, and system health monitoring. Sidebar navigation with feature pages per workflow section is exactly how every enterprise security management platform (Genetec, Kisi, Brivo) structures their admin tooling.",
+  "competitorReferences": [
+    "Genetec Security Center — dark navy sidebar (#181e25) with cyan accent (#00aeef), light main content area, tile-based customizable dashboards for access events, alarms, and video. The dominant visual reference for enterprise PACS management.",
+    "Kisi Cloud Management Dashboard — dark theme throughout (near-black backgrounds, white text), geometric sans-serif typography, modular card architecture, command-center feel oriented around access control and intrusion detection modules.",
+    "Brivo Access Control — light theme with blue accent (#739cd2), rounded cards (12px radius), Open Sans, modern approachable corporate SaaS positioning. The 'newer generation' PACS platform moving toward SaaS conventions.",
+    "CCURE 9000 by Software House (Johnson Controls) — on-premises enterprise software, structured data-heavy layout, formal corporate UI, dense event log tables, credential management views.",
+    "Lenel OnGuard by LenelS2 (Honeywell) — enterprise command-center client (Magic Monitor) with grid-based unified view of access control, video surveillance, and alarm data. Dense, functional, no decorative elements."
+  ],
+  "brandSignals": null,
+  "creativeRationale": "Studied Genetec Security Center and Kisi's cloud dashboard — both use dark navy or near-black surfaces for the navigation chrome with cyan/blue accent colors, confirming that enterprise PACS management tools occupy the dark corporate end of the spectrum. The client's deliverable is an integration middleware layer between their platform and CCURE/Lenel — this is not consumer software, it is serious enterprise infrastructure. Genetec's dark navy + cyan palette is the reference point because it's the most respected independent PACS platform in the market and the visual language security integrators would immediately recognize as 'this person knows the domain.' A spacious SaaS modern or warm organic aesthetic would signal a misunderstanding of the enterprise security space where formality, density, and precision are trust signals."
+}

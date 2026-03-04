@@ -89,39 +89,47 @@
    Layout Builder overrides color tokens per domain.
    Aesthetic [data-theme] blocks below override all other tokens.
    ============================================================ */
+
+/* ── AESTHETIC: corporate-enterprise / DOMAIN: physical access control systems integration ──
+   Creative rationale: Physical access control integration tools — Genetec Security Center,
+   Kisi, Brivo, CCURE 9000, Lenel OnGuard — all use structured, dense, authoritative UIs.
+   Deep navy primary signals trust and precision; electric cyan accent highlights status/alerts.
+   Tight radius (0.25rem) and compact density match the command-center feel of PACS dashboards.
+   Motion: snappy 100-150ms ease-out to signal responsiveness without theatrics.           */
 :root {
   /* ── Border Radius ───────────────────────────────────────────
      Profiles: sharp = 0.25rem | standard = 0.5rem | rounded = 0.75rem
      Layout Builder sets to match domain personality.            */
-  --radius: 0.5rem;
+  --radius: 0.25rem;
+
+  /* ── Primary Color — Deep Navy ───────────────────────────────
+     oklch(0.28 0.06 255) — deep navy inspired by Genetec Security Center.
+     --primary-h: 255 (integer hue extracted from --primary)    */
+  --primary: oklch(0.28 0.06 255);
+  --primary-foreground: oklch(0.985 0 0);
+  --primary-h: 255;
 
   /* ── Base Surfaces ───────────────────────────────────────── */
-  --background: oklch(1 0 0);
+  --background: oklch(0.99 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --surface-hover: oklch(0.96 0 0);
-  --surface-active: oklch(0.94 0 0);
-
-  /* ── Primary Color ───────────────────────────────────────────
-     !! OVERRIDE REQUIRED — Layout Builder must replace --primary and
-        --primary-h with domain-appropriate oklch values.
-        See the Creative Brief's colorDirection for the target color.
-        QA rejects builds where --primary stays oklch(0.205 0 0). !! */
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --primary-h: 270; /* Integer hue extracted from --primary */
+  --surface-hover: oklch(0.95 0 0);
+  --surface-active: oklch(0.93 0 0);
 
   /* ── Derived Color Tokens ────────────────────────────────── */
   --section-dark: oklch(0.10 0.02 var(--primary-h));
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
+  --muted: oklch(0.96 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+
+  /* ── Accent Color — Electric Cyan ───────────────────────────
+     oklch(0.62 0.14 210) — electric cyan for status alerts and highlights */
+  --accent: oklch(0.62 0.14 210);
+  --accent-foreground: oklch(0.985 0 0);
 
   /* ── Semantic Colors ─────────────────────────────────────── */
   --destructive: oklch(0.577 0.245 27.325);
@@ -131,50 +139,50 @@
   --warning-foreground: oklch(0.205 0 0);
 
   /* ── Borders & Inputs ────────────────────────────────────── */
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: oklch(0.88 0 0);
+  --input: oklch(0.88 0 0);
+  --ring: oklch(0.28 0.06 255);
 
-  /* ── Chart Colors ────────────────────────────────────────────
-     Layout Builder harmonizes to primary hue. See design-system.md. */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  /* ── Chart Colors — harmonized to navy/cyan hue family ──────
+     chart-1: primary navy
+     chart-2: electric cyan (+0 at higher L)
+     chart-3: +30 deg from navy
+     chart-4: -30 deg from navy
+     chart-5: complementary warm (near amber for alert states)  */
+  --chart-1: oklch(0.45 0.10 255);
+  --chart-2: oklch(0.62 0.14 210);
+  --chart-3: oklch(0.52 0.12 285);
+  --chart-4: oklch(0.48 0.10 225);
+  --chart-5: oklch(0.65 0.15 180);
 
   /* ── Sidebar Colors ──────────────────────────────────────────
-     After color override: --sidebar-primary and --sidebar-ring
-     should match --primary.                                     */
-  --sidebar: oklch(0.985 0 0);
+     Sidebar uses navy-tinted surface for corporate PACS feel.  */
+  --sidebar: oklch(0.97 0.005 255);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary: oklch(0.28 0.06 255);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-accent: oklch(0.94 0.008 255);
+  --sidebar-accent-foreground: oklch(0.145 0 0);
+  --sidebar-border: oklch(0.88 0 0);
+  --sidebar-ring: oklch(0.28 0.06 255);
 
   /* ── Surface / Card Tokens ───────────────────────────────────
      Driven by [data-theme] aesthetic — not overridden per domain.
      .linear-card and .aesthetic-card read these.                */
   --card-border-width: 1px;
-  --card-shadow: none;
-  --card-shadow-hover: none;
+  --card-shadow: 0 1px 2px oklch(0 0 0 / 0.06);
+  --card-shadow-hover: 0 2px 6px oklch(0 0 0 / 0.10);
   --card-backdrop: none;
   --card-hover-transform: none;
 
-  /* ── Spacing / Density Tokens ────────────────────────────────
-     Layout Builder overrides for compact / standard / spacious feel.
-
-     Compact:  --nav-item-py: 0.375rem, --content-padding: 1rem,   --card-padding: 1rem
-     Standard: --nav-item-py: 0.5rem,   --content-padding: 1.5rem, --card-padding: 1.5rem
-     Spacious: --nav-item-py: 0.625rem, --content-padding: 2rem,   --card-padding: 1.5rem */
-  --page-padding: 1.5rem;
-  --card-padding: 1.5rem;
-  --card-padding-sm: 1rem;
-  --grid-gap: 1rem;
-  --section-gap: 1.5rem;
+  /* ── Spacing / Density Tokens — COMPACT ─────────────────────
+     Compact density to match PACS command-center convention.
+     nav-item-py: 0.375rem, content-padding: 1rem, card-padding: 1rem */
+  --page-padding: 1rem;
+  --card-padding: 1rem;
+  --card-padding-sm: 0.75rem;
+  --grid-gap: 0.75rem;
+  --section-gap: 1rem;
 
   /* ── Layout Tokens ───────────────────────────────────────────
      Sidebar width presets:
@@ -188,16 +196,13 @@
   --sidebar-width: 16rem;
   --sidebar-collapsed-width: 4rem;
   --sidebar-width-mobile: 18rem;
-  --header-height: 3.5rem;
+  --header-height: 2.75rem;
   --tab-bar-height: 49px;    /* 48px + 1px border */
-  --content-padding: 1.5rem;
-  --nav-item-py: 0.5rem;
+  --content-padding: 1rem;
+  --nav-item-py: 0.375rem;
 
-  /* Sidebar surface — override to tint sidebar by domain:
-     White (default): oklch(1 0 0)
-     Tinted:          oklch(0.985 0.008 var(--primary-h))
-     Subdued:         oklch(0.97 0.005 var(--primary-h))          */
-  --sidebar-bg: oklch(1 0 0);
+  /* Sidebar surface — navy-tinted for corporate PACS feel */
+  --sidebar-bg: oklch(0.97 0.005 255);
 
   /* Tab bar background — tint to primary hue subtly if desired */
   --tab-bar-bg: var(--background);
@@ -396,17 +401,34 @@
 
 /* ── 4. Corporate Enterprise ─────────────────────────────────
    Dense, structured, authoritative. Max information per pixel.
-   Best for: ERP, CRM, legal, compliance, healthcare B2B.        */
+   Best for: ERP, CRM, legal, compliance, healthcare B2B.
+   AccessHub override: deep navy + electric cyan — Genetec-inspired. */
 [data-theme="corporate-enterprise"] {
   --radius: 0.25rem;
+  --primary: oklch(0.28 0.06 255);
+  --primary-foreground: oklch(0.985 0 0);
+  --primary-h: 255;
+  --accent: oklch(0.62 0.14 210);
+  --accent-foreground: oklch(0.985 0 0);
+  --ring: oklch(0.28 0.06 255);
+  --section-dark: oklch(0.10 0.02 255);
   --background: oklch(0.99 0 0);
   --card: oklch(1 0 0);
   --border: oklch(0.88 0 0);
   --muted: oklch(0.96 0 0);
-  --sidebar: oklch(0.97 0 0);
-  --sidebar-bg: oklch(0.97 0 0);
+  --sidebar: oklch(0.97 0.005 255);
+  --sidebar-bg: oklch(0.97 0.005 255);
+  --sidebar-primary: oklch(0.28 0.06 255);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.94 0.008 255);
+  --sidebar-ring: oklch(0.28 0.06 255);
   --surface-hover: oklch(0.95 0 0);
   --surface-active: oklch(0.93 0 0);
+  --chart-1: oklch(0.45 0.10 255);
+  --chart-2: oklch(0.62 0.14 210);
+  --chart-3: oklch(0.52 0.12 285);
+  --chart-4: oklch(0.48 0.10 225);
+  --chart-5: oklch(0.65 0.15 180);
   --card-border-width: 1px;
   --card-shadow: 0 1px 2px oklch(0 0 0 / 0.06);
   --card-shadow-hover: 0 2px 6px oklch(0 0 0 / 0.10);
@@ -418,15 +440,17 @@
   --grid-gap: 0.75rem;
   --section-gap: 1rem;
   --nav-item-py: 0.375rem;
-  --sidebar-width: 14rem;
-  --header-height: 3rem;
+  --sidebar-width: 16rem;
+  --header-height: 2.75rem;
   --heading-weight: 600;
   --heading-tracking: -0.01em;
   --body-leading: 1.5;
-  --dur-fast: 60ms;
-  --dur-normal: 100ms;
+  --dur-fast: 100ms;
+  --dur-normal: 150ms;
   --ease-snappy: cubic-bezier(0.25, 0, 0.25, 1);
   --t-interactive: var(--dur-fast) var(--ease-snappy);
+  /* Motion character: snappy (100-150ms ease-out) */
+  --transition-speed: 120ms;
 }
 
 /* ── 5. Dark Premium ─────────────────────────────────────────
@@ -967,6 +991,17 @@
     box-shadow: 2px 2px 0 oklch(0.10 0 0);
   }
 
+}
+
+/* ── Staggered card reveal animation ────────────────────────── */
+@keyframes fade-up-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up-in {
+  animation-name: fade-up-in;
+  animation-timing-function: cubic-bezier(0.25, 0, 0.25, 1);
+  animation-fill-mode: both;
 }
 
 /* ── Frame utility classes ─────────────────────────────────── */

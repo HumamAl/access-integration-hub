@@ -6,13 +6,17 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { APP_CONFIG } from "@/lib/config";
 import {
-  LayoutDashboard,
+  Activity,
   ChevronLeft,
   ChevronRight,
   Lightbulb,
   User,
   ArrowRight,
   Github,
+  Plug,
+  ScrollText,
+  RefreshCw,
+  AlertTriangle,
 } from "lucide-react";
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -23,9 +27,11 @@ import {
 // ═══════════════════════════════════════════════════════════════════════════
 
 const navItems = [
-  { href: "/", label: "Dashboard", icon: LayoutDashboard },
-  // Dashboard Builder agent: add 3-5 feature page nav items here.
-  // Example: { href: "/orders", label: "Orders", icon: ShoppingCart },
+  { href: "/", label: "Integration Overview", icon: Activity },
+  { href: "/provider-connections", label: "Provider Connections", icon: Plug },
+  { href: "/access-events", label: "Access Event Log", icon: ScrollText },
+  { href: "/credential-sync", label: "Credential Sync", icon: RefreshCw },
+  { href: "/troubleshooting", label: "Troubleshooting", icon: AlertTriangle },
 ];
 
 function SidebarLogo({ collapsed }: { collapsed: boolean }) {

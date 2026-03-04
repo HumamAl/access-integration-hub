@@ -44,12 +44,12 @@ export type DeviceModel =
 // evidence-backed and documented in the Creative Brief.
 
 export const APP_CONFIG = {
-  appName: "App Name",                       // Display name (sidebar header, page title)
-  projectName: "Project Name",               // Client's product name (tab bar microtext, footer)
-  clientName: null as string | null,         // Client first name, or null — never render "null"
-  domain: "tech",                            // Domain (finance, health, marketplace, tech, etc.)
-  aesthetic: "linear" as AestheticProfile,   // Drives data-theme="..." on <html>
-  demoFormat: "dashboard-app" as DemoFormat,          // Layout architecture for Tab 1
-  deviceModel: undefined as DeviceModel | undefined,  // Device frame model (frame formats only)
-  screenCount: undefined as number | undefined,       // Number of screens in frame demos
+  appName: "AccessHub",
+  projectName: "Access Integration Hub",
+  clientName: null as string | null,
+  domain: "physical access control systems integration",
+  aesthetic: "corporate-enterprise" as AestheticProfile,
+  demoFormat: "dashboard-app" as DemoFormat,
+  deviceModel: undefined as DeviceModel | undefined,
+  screenCount: undefined as number | undefined,
 } as const;

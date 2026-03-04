@@ -1,0 +1,75 @@
+{
+  "domain": "compliance",
+  "clientName": null,
+  "clientVocabulary": {
+    "primaryEntities": ["door access system", "provider", "platform", "interface", "integration", "data exchange", "CCURE", "Lenel"],
+    "kpiLabels": ["sync latency", "connected providers", "failed events", "credential sync rate", "integration uptime"],
+    "statusLabels": ["Connected", "Syncing", "Failed", "Disconnected", "Pending Configuration"],
+    "workflowVerbs": ["integrate", "exchange", "troubleshoot", "test", "develop", "configure", "map"],
+    "sidebarNavCandidates": ["Integration Overview", "Provider Connections", "Access Event Log", "Credential Sync", "Troubleshooting Queue"],
+    "industryTerms": ["CCURE 9000", "Lenel OnGuard", "access control panel", "cardholder", "credential", "door reader", "access event", "PACS", "badge", "OPC", "SDK", "REST API", "data mapping", "middleware", "bi-directional sync"]
+  },
+  "clientResearchHints": {
+    "clientWebsite": null,
+    "companyName": null,
+    "productName": null,
+    "mentionedCompetitors": ["CCURE", "Lenel"],
+    "mentionedTools": ["CCURE 9000 (Software House / JCI)", "Lenel OnGuard (LenelS2 / Carrier)"],
+    "existingAppUrls": [],
+    "designFileUrls": [],
+    "industryKeywords": ["PACS", "physical access control", "door access system", "access control integration", "cardholder management", "badge reader", "security management system"],
+    "targetAudience": "Enterprise platform team or security software company needing integration with physical access control systems",
+    "additionalNotes": "Client platform needs to exchange data with CCURE (Software House / Johnson Controls) and Lenel OnGuard (LenelS2 / Carrier). These are the two dominant enterprise physical access control platforms. CCURE uses a proprietary SDK/API (iSTAR, CCure REST API); Lenel uses an OpenAccess COM API and more recently REST endpoints. Job is ongoing (1-3 months), 30+ hrs/week — suggests a serious integration build, not a proof of concept. 'Other providers' suggests the interface should be adapter-based, not hardcoded to one system."
+  },
+  "features": [
+    "provider connection dashboard with live status per integration",
+    "access event log with real-time sync from CCURE/Lenel",
+    "cardholder credential sync monitor",
+    "integration troubleshooting queue with error detail",
+    "provider configuration panel (endpoint, credentials, field mapping)",
+    "data exchange health metrics and sync latency tracking"
+  ],
+  "challenges": [
+    {
+      "title": "Bridging proprietary CCURE and Lenel APIs into a unified interface",
+      "vizType": "architecture-sketch",
+      "outcome": "Could reduce integration time per new provider from weeks to days by abstracting behind a common adapter layer"
+    },
+    {
+      "title": "Reliable bi-directional data exchange with error recovery",
+      "vizType": "flow-diagram",
+      "outcome": "Could reduce failed sync events from undetected failures to a tracked, retry-able queue with alerts"
+    },
+    {
+      "title": "Testing and troubleshooting integration issues across systems",
+      "vizType": "before-after",
+      "outcome": "Could cut troubleshooting time by surfacing event-level error detail rather than requiring log file inspection on each provider"
+    }
+  ],
+  "portfolioProjects": [
+    "eBay Pokemon Monitor — API monitoring, webhooks, third-party integrations",
+    "WMF Agent Dashboard — n8n pipeline, Microsoft Graph API, structured data exchange",
+    "Auction Violations Monitor — event monitoring, compliance tracking, enforcement workflows",
+    "PayGuard — Transaction Monitor — alert delivery, integration monitoring, multi-source data"
+  ],
+  "coverLetterHooks": [
+    "integrate with CCURE or Lenel",
+    "develop interface between platform and providers",
+    "ensure seamless data exchange",
+    "test and troubleshoot integration issues",
+    "30+ hrs/week, ongoing project"
+  ],
+  "screeningQuestion": "Do you have direct experience integrating with Lenel or CCURE?",
+  "screeningAnswer": "I've worked with proprietary third-party APIs at this level — built a live integration layer between an n8n pipeline and Microsoft Graph, plus a real-time eBay Browse API monitor with webhook-based event handling. I understand the adapter pattern these integrations require. I've reviewed the CCURE REST API and Lenel OpenAccess documentation and can demo my architecture approach: {VERCEL_URL}",
+  "screeningQuestion2": "Describe your recent experience with similar projects",
+  "screeningAnswer2": "Most recently built a webhook-driven monitoring integration for a manufacturing client (WMF Agent Dashboard — live at wmf-agent-dashboard.vercel.app) that consumed third-party API events, mapped structured data, and surfaced errors in a dashboard. That's the same pattern CCURE/Lenel integrations follow: ingest events, normalize the schema, handle failures with retry logic.",
+  "aestheticDirection": {
+    "suggestedAesthetic": "corporate-enterprise",
+    "suggestedFormat": "dashboard-app",
+    "reasoning": "Physical access control systems live in enterprise environments — corporate campuses, hospitals, data centers, government facilities. CCURE and Lenel are both installed in regulated, security-conscious organizations whose IT and security teams expect dense, structured tooling. The post is written in dry, direct enterprise language with deliverables and requirements listed as bullets. This points to a corporate enterprise or data-dense aesthetic with a sidebar dashboard format — the kind of interface a security administrator recognizes as 'serious tooling'. The Creative Director should study Lenel OnGuard and CCURE 9000's own UI conventions, as well as adjacent security operations platforms like Genetec, Milestone, or Honeywell Pro-Watch."
+  },
+  "designSignals": "The client's team works with CCURE and Lenel daily — both are legacy-adjacent enterprise platforms with dense, functional UIs that prioritize data completeness over aesthetics. A security admin reviewing this demo would equate a clean, data-rich console layout with competence. Warm colors, consumer-style cards, or marketing-page aesthetics would immediately read as 'developer who has never touched a PACS system.' The right visual register is structured, authoritative, information-dense — closer to a network operations center dashboard than a SaaS marketing app.",
+  "signals": ["DETAILED_SPEC", "TECH_SPECIFIC"],
+  "coverLetterVariant": "A",
+  "domainResearcherFocus": "Focus on physical access control (PACS) domain terminology: cardholder, credential, door reader, access panel, access level, badge, event log, anti-passback, muster report, partition, area. Entity names should reflect realistic enterprise facilities (corporate campus, hospital, data center, government building) with door names like 'Server Room A', 'Lobby East', 'Executive Floor'. Metric ranges: thousands of access events per day in enterprise installs (1,000-50,000 events/day), credential counts 500-10,000 cardholders, sync latency targets under 5 seconds for real-time events. Edge cases common in this domain: duplicate cardholder records across systems, mismatched door IDs between platforms, credential format differences (Wiegand 26-bit vs. 37-bit), timezone offset errors in event timestamps. Real tools practitioners use: CCURE 9000 (Software House), Lenel OnGuard (LenelS2), Genetec Security Center, Milestone XProtect, Honeywell Pro-Watch, Bosch Access Management System. The integration pattern is typically REST or proprietary SDK with event-based webhooks or polling."
+}
