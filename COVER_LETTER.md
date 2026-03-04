@@ -1,6 +1,6 @@
 Hi,
 
-Bi-directional sync with strict type contracts is the same pattern whether you're moving cardholders into CCURE 9000 or pushing credentials into Lenel OnGuard. Built a demo showing both: {VERCEL_URL}
+Bi-directional sync with strict type contracts is the same pattern whether you're moving cardholders into CCURE 9000 or pushing credentials into Lenel OnGuard. Built a demo showing both: https://access-integration-hub.vercel.app
 
 Covers cardholder sync, access level mapping, and the adapter layer that keeps both systems decoupled. The tricky part (credential state mismatches on a failed mid-write) is handled too.
 
